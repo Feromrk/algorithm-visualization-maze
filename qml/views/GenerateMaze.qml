@@ -60,8 +60,13 @@ Item {
     }
     GridLayout {
         id: maze
-        anchors.fill: parent
-        anchors.margins: 50
+        anchors {
+            top: parent.top
+            topMargin: 50
+            horizontalCenter: parent.horizontalCenter
+        }
+        height: Math.min(parent.height, parent.width) - anchors.topMargin
+        width: height
         visible: false
         columns: 25
         rows: columns
@@ -79,7 +84,7 @@ Item {
                 Rectangle {
                     id: highlight
                     anchors.fill: parent
-                    color: "green"
+                    color: "steelblue"
                     visible: model.highlight
                 }
 

@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "public": "build_wasm",
+    "site": "algorithm-visualization-maze",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source" : "**",
+        "destination": "/maze.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source" : "/",
+        "destination": "/maze.html",
+        "type": 301
+      }
+    ]
+  }
+}
