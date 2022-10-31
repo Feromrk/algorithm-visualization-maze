@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>views/GenerateMaze.qml</file>
+        <file>components/Cells.qml</file>
+    </qresource>
+</RCC>
