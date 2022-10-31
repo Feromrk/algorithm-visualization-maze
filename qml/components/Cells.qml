@@ -9,6 +9,9 @@ Item {
     property int rows: 10
     property int columns: 10
 
+    // Execution speed of the mace generation in percent.
+    property int generationSpeedPercent: 100
+
     function generate(algorithm) {
         if(algorithm === "DFS") {
             dfs.start()
@@ -152,7 +155,14 @@ Item {
 
             Timer {
                 id: dfsTimer
-                interval: 1
+                interval: {
+                    if(root.generationSpeedPercent >= 100) {
+                        return 1
+                    } else if(root.generationSpeedPercent <= 1) {
+                        return 1000
+                    }
+                    return (100-root.generationSpeedPercent) * 10
+                }
                 repeat: true
                 running: false
                 onTriggered: {

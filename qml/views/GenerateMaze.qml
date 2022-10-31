@@ -56,6 +56,7 @@ Item {
         rows: maze.rows
         columns: maze.columns
         onDoneGenerating: root.state = "done"
+        generationSpeedPercent: generationSpeedPercentSlider.value
     }
     GridLayout {
         id: maze
@@ -131,6 +132,27 @@ Item {
         }
     }
 
+    RowLayout {
+        id: settings
+        visible: false
+        spacing: 0
+        anchors {
+            top: parent.top
+            horizontalCenter: parent.horizontalCenter
+        }
+        height: maze.anchors.topMargin
+        Text {
+            text: "Speed"
+            font.pixelSize: 19
+        }
+        Slider {
+            id: generationSpeedPercentSlider
+            from: 60
+            to: 100
+            value: 100
+        }
+    }
+
     Button {
         id: restartButton
         anchors.centerIn: parent
@@ -154,6 +176,10 @@ Item {
                 target: maze
                 visible: false
             }
+            PropertyChanges {
+                target: settings
+                visible: false
+            }
         },
         State {
             name: "generate"
@@ -163,6 +189,10 @@ Item {
             }
             PropertyChanges {
                 target: maze
+                visible: true
+            }
+            PropertyChanges {
+                target: settings
                 visible: true
             }
         },
@@ -179,6 +209,10 @@ Item {
             PropertyChanges {
                 target: restartButton
                 visible: true
+            }
+            PropertyChanges {
+                target: settings
+                visible: false
             }
         }
     ]
