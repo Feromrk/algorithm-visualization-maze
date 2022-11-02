@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>views/GenerateMaze.qml</file>
+        <file>views/Maze.qml</file>
         <file>components/Cells.qml</file>
+        <file>components/qmldir</file>
+        <file>components/Options.qml</file>
     </qresource>
 </RCC>
